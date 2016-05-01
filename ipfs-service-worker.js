@@ -5,6 +5,7 @@ self.oninstall = (event) => {
 self.onactivate = (event) => {
   event.waitUntil(self.clients.claim())
 }
+
 importScripts('./lib/ServiceWorkerWare.js')
 var root = (() => {
   var tokens = (self.location + '').split('/')
@@ -13,6 +14,7 @@ var root = (() => {
 })()
 
 var worker = new ServiceWorkerWare()
+
 worker.get(root, (req, res) => {
   let content = '<html><body><br />' +
     'Welcome to IPFS <br /> Enter a hash into the address bar ' +
@@ -24,12 +26,12 @@ worker.get(root, (req, res) => {
     }
   }))
 })
+
 worker.get(root + 'ipfs/', (req, res) => {
   let url = req.clone().url
   let hash = req.parameters.hash
   let resource = req.parameters.resource
-  let content = '<html><body><br />' +
-    'Please enter a valid hash</body></html>'
+  let content = 'Please enter a valid hash'
   console.log('IPFS GET: ' + url)
   return Promise.resolve(new Response(content, {
     headers: {

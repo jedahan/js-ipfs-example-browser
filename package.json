@@ -1,6 +1,9 @@
 {
   "name": "ipfs-example-browser",
   "version": "0.0.1",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
   "dependencies": {
     "async": "^2.0.0-rc.3",
     "bs58": "^3.0.0",
@@ -10,7 +13,10 @@
     "ipfs-repo": "^0.6.1",
     "lodash": "^4.11.1",
     "pem": "^1.8.1",
-    "serviceworkers-ware": "^0.3.2"
+    "serviceworkers-ware": "^0.3.2",
+    "standard": "^6.0.8",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {
     "buffer-loader": "0.0.1",
